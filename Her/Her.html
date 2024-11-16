@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday!</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@300;400&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #ffe6f2;
+      color: #ff3399;
+      overflow: hidden;
+    }
+
+    .flower-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #ffe6f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      z-index: 10;
+    }
+
+    .flower {
+      width: 80px;
+      height: 80px;
+      opacity: 0;
+      transform: scale(0);
+      animation: bloom 1s forwards;
+    }
+
+    .flower:nth-child(odd) {
+      animation-delay: 0.2s;
+    }
+
+    .flower:nth-child(even) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes bloom {
+      0% {
+        opacity: 0;
+        transform: scale(0);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .content {
+      display: none;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .page {
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #ffcce6;
+      padding: 20px;
+    }
+
+    .page:nth-child(2n) {
+      background-color: #fff0f6;
+    }
+
+    .page img {
+      max-width: 90%;
+      border: 3px solid #ff99cc;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .page h1 {
+      margin: 20px 0;
+      font-size: 2.5em;
+      color: #ff3399;
+    }
+
+    .page p {
+      font-size: 1.2em;
+      margin: 10px 20px;
+      color: #cc0066;
+    }
+
+    .swiper-container {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-pagination-bullet {
+      background-color: #ff3399 !important;
+    }
+  </style>
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/swiper/swiper-bundle.min.css"
+  />
+</head>
+<body>
+  <!-- Flower Bloom Screen -->
+  <div class="flower-container" id="flowerContainer" onclick="showContent()">
+    <img src="https://via.placeholder.com/80x80.png?text=🌸" class="flower">
+    <img src="https://via.placeholder.com/80x80.png?text=🌸" class="flower">
+    <img src="https://via.placeholder.com/80x80.png?text=🌸" class="flower">
+    <img src="https://via.placeholder.com/80x80.png?text=🌸" class="flower">
+    <img src="https://via.placeholder.com/80x80.png?text=🌸" class="flower">
+  </div>
+
+  <!-- Swipable Content -->
+  <div class="content">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <!-- Slide 1: Introduction -->
+        <div class="swiper-slide page">
+          <h1>🎉 Happy Birthday, Angngmacha "14-12-2007"! 🎂</h1>
+          <img src="slide1.jpg" alt="Princess">
+          <p>To the one who makes my world brighter every day! 💖</p>
+        </div>
+
+        <!-- Slide 2: Describing Her -->
+        <div class="swiper-slide page">
+          <img src="slide2.jpg" alt="Smile">
+          <p>You are the kindest, most beautiful, funny, and intelligent person I know ado amuk2 ti sono chuiko hehe. 🥰</p>
+        </div>
+
+        <!-- Slide 3: A Fun Memory -->
+        <div class="swiper-slide page">
+          <img src="slide3.jpg" alt="Fun Memory">
+          <p>Remember the time we laughed so hard? Every moment with you is a treasure.... ngna nokpadune eina yengbasu tabasu loina nungyrise! ❤️</p>
+        </div>
+
+        <!-- Slide 4: Her Strengths -->
+        <div class="swiper-slide page">
+          <img src="slide4.jpg" alt="Strength">
+          <p>I love you 3000 baby.... ngse yengigei pennaide onthoknasu nungc eidi pungao ngaore ngse ei nupiiiiii</p>
+        </div>
+
+        <!-- Slide 5: Final Message -->
+        <div class="swiper-slide page">
+          <h1>Thank You ❤️</h1>
+          <p>For being my best friend, partner, and the love of my life. Here's to more amazing memories! 🎁</p>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    function showContent() {
+      document.getElementById('flowerContainer').style.display = 'none';
+      document.querySelector('.content').style.display = 'block';
+
+      // Initialize Swiper
+      new Swiper('.swiper-container', {
+        direction: 'horizontal',
+        loop: true,
+        pagination: {
+          el: '.swiper-pagination',
+        },
+      });
+    }
+  </script>
+</body>
+</html>
